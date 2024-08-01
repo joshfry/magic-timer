@@ -6,12 +6,11 @@ import 'normalize.css' // https://github.com/necolas/normalize.css
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: ${baseFontSize}px;
+    background-color: #111;
   }
   
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1rem;

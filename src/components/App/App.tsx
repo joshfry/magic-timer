@@ -5,9 +5,30 @@ const App = () => {
   return (
     <StyledApp>
       <GlobalStyle />
-      <header>
-        <h1>Magic Timer</h1>
-      </header>
+      <div className="clock">
+        <button className="clock__button">
+          <div className="player">Player 1</div>
+          <div className="timer">29:59</div>
+        </button>
+      </div>
+      <div className="clock">
+        <button className="clock__button">
+          <div className="player">Player 2</div>
+          <div className="timer">29:59</div>
+        </button>
+      </div>
+      <div className="clock">
+        <button className="clock__button">
+          <div className="player">Player 3</div>
+          <div className="timer">29:59</div>
+        </button>
+      </div>
+      <div className="clock">
+        <button className="clock__button">
+          <div className="player">Player 4</div>
+          <div className="timer">29:59</div>
+        </button>
+      </div>
     </StyledApp>
   )
 }
