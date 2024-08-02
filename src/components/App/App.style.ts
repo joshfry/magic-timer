@@ -6,13 +6,33 @@ const StyledApp = styled('div')`
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-auto-flow: column;
+
   color: #fff;
   width: (100vh - 2.5vw);
   height: calc(100vh - 2.5vw);
   background-color: #111;
 
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    grid-gap: 1.25vw;
+  }
+
+  .row--1 {
+    transform: scale(-1, -1);
+    flex-direction: row-reverse;
+  }
+
+  .row--2 {
+    flex-direction: row-reverse;
+  }
+
   .clock {
     display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    width: 100%;
   }
 
   .clock__button {
