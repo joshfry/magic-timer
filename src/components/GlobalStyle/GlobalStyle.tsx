@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: underline;
     }
   }
+
+  button {
+    cursor: pointer;
+  }
 `
 
 export default GlobalStyle

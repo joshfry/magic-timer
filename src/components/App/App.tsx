@@ -1,38 +1,37 @@
+import { useState, createContext } from 'react'
 import GlobalStyle from 'components/GlobalStyle'
+import ClockScreen from 'components/ClockScreen'
+import SettingsMenu, { SettingsMenuButton } from 'components/SettingsMenu'
 import StyledApp from './App.style'
 
+export type AppContextType = {
+  numPlayers: number
+  setNumPlayers: (num: number) => void
+  isSettingsMenuOpen: boolean
+  setIsSettingsMenuOpen: (bool: boolean) => void
+}
+
+export const AppContext = createContext<AppContextType | null>(null)
+
 const App = () => {
+  const [numPlayers, setNumPlayers] = useState(4)
+  const [isSettingsMenuOpen, setIsSettingsMenuOpen] = useState(false)
+
+  const state = {
+    numPlayers,
+    setNumPlayers,
+    isSettingsMenuOpen,
+    setIsSettingsMenuOpen,
+  }
+
   return (
     <StyledApp>
       <GlobalStyle />
-      <div className="row row--1">
-        <div className="clock">
-          <button className="clock__button" tabIndex={2}>
-            <div className="player">Player 2</div>
-            <div className="timer">29:59</div>
-          </button>
-        </div>
-        <div className="clock">
-          <button className="clock__button" tabIndex={3}>
-            <div className="player">Player 3</div>
-            <div className="timer">29:59</div>
-          </button>
-        </div>
-      </div>
-      <div className="row row--2">
-        <div className="clock">
-          <button className="clock__button" tabIndex={4}>
-            <div className="player">Player 4</div>
-            <div className="timer">29:59</div>
-          </button>
-        </div>
-        <div className="clock">
-          <button className="clock__button" tabIndex={1}>
-            <div className="player">Player 1</div>
-            <div className="timer">29:59</div>
-          </button>
-        </div>
-      </div>
+      <AppContext.Provider value={state}>
+        <SettingsMenu />
+        <SettingsMenuButton />
+        <ClockScreen />
+      </AppContext.Provider>
     </StyledApp>
   )
 }
