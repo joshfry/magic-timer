@@ -15,7 +15,7 @@ const SettingsMenuButton = ({ className = '' }: Props) => {
 
   return (
     <StyledSettingsMenuButton className={className} onClick={handleClick}>
-      <span>☰</span>
+      {/* <div>☰</div> */}
     </StyledSettingsMenuButton>
   )
 }

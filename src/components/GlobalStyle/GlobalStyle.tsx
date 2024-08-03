@@ -4,12 +4,13 @@ import { baseFontSize } from './constants'
 import 'normalize.css' // https://github.com/necolas/normalize.css
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    font-size: ${baseFontSize}px;
-    background-color: #111;
-  }
-  
-  body {
+
+html {
+  font-size: ${baseFontSize}px;
+  background-color: #111;
+}
+
+body {
     font-family: 'Roboto Condensed', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

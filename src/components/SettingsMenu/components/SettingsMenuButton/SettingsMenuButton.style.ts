@@ -14,14 +14,16 @@ const StyledSettingsMenuButton = styled('button')<Partial<Props>>`
   background-color: #fff;
   color: #111;
   border: none;
-  border-radius: 50%;
+  border-radius: 100%;
   box-shadow: 0 0 0 1.25vw #111;
   z-index: 999;
 
-  span {
+  /* div {
+    position: relative;
+    top: -0.4vw;
     font-size: 4vw;
-    line-height: 0.5;
-  }
+    padding: 4vw;
+  } */
 `
 
 export default StyledSettingsMenuButton

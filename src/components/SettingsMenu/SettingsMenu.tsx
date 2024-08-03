@@ -10,7 +10,11 @@ export interface Props {
 const SettingsMenu = ({ className = '' }: Props) => {
   const state = useContext(AppContext) as AppContextType
 
-  const handleClick = () => {
+  const handlePause = () => {
+    state.setIsPaused(!state.isPaused)
+  }
+
+  const handleClose = () => {
     state.setIsSettingsMenuOpen(false)
   }
 
@@ -19,72 +23,50 @@ const SettingsMenu = ({ className = '' }: Props) => {
       className={className}
       $isOpen={state.isSettingsMenuOpen}
     >
-      <div style={{ margin: '2rem 0' }}>
+      <div style={{ margin: '1rem 0' }}>
         <h1 style={{ margin: '0 1rem 0.5rem 0' }}>Players</h1>
-        {/* <div style={{ display: 'flex' }}>
-          <label
-            style={{ display: 'block', width: '5vw', height: '5vw' }}
-            htmlFor="playerChoice1"
-          >
-            <input
-              style={{ opacity: 0 }}
-              type="radio"
-              id="playerChoice1"
-              name="playerChoice"
-              value="1"
-            />
-            1
-          </label>
-          <label
-            style={{ display: 'block', width: '5vw', height: '5vw' }}
-            htmlFor="playerChoice2"
-          >
-            <input
-              style={{ opacity: 0 }}
-              type="radio"
-              id="playerChoice2"
-              name="playerChoice"
-              value="2"
-            />
-            2
-          </label>
-          <label
-            style={{ display: 'block', width: '5vw', height: '5vw' }}
-            htmlFor="playerChoice3"
-          >
-            <input
-              style={{ opacity: 0 }}
-              type="radio"
-              id="playerChoice3"
-              name="playerChoice"
-              value="3"
-            />
-            3
-          </label>
-          <label
-            style={{ display: 'block', width: '5vw', height: '5vw' }}
-            htmlFor="playerChoice4"
-          >
-            <input
-              style={{ opacity: 0 }}
-              type="radio"
-              id="playerChoice4"
-              name="playerChoice"
-              value="4"
-            />
-            4
-          </label>
-        </div> */}
-        <input
-          style={{ width: '125px' }}
-          type="number"
-          min={1}
-          max={4}
-          value={state.numPlayers}
-          onChange={(e) => state.setNumPlayers(parseInt(e.target.value))}
-        />
+        <div style={{ display: 'flex' }}>
+          <input
+            type="radio"
+            id="playerChoice2"
+            name="playerChoice"
+            value="2"
+            checked={state.numPlayers === 2}
+            onChange={(e) => state.setNumPlayers(parseInt(e.target.value))}
+          />
+          <label htmlFor="playerChoice2">2</label>
+          <input
+            type="radio"
+            id="playerChoice3"
+            name="playerChoice"
+            value="3"
+            checked={state.numPlayers === 3}
+            onChange={(e) => state.setNumPlayers(parseInt(e.target.value))}
+          />
+          <label htmlFor="playerChoice3">3</label>
+          <input
+            type="radio"
+            id="playerChoice4"
+            name="playerChoice"
+            value="4"
+            checked={state.numPlayers === 4}
+            onChange={(e) => state.setNumPlayers(parseInt(e.target.value))}
+          />
+          <label htmlFor="playerChoice4">4</label>
+        </div>
       </div>
-      <button onClick={handleClick}>Close</button>
+      <button
+        style={{ margin: '1rem 0', padding: '1rem' }}
+        onClick={handlePause}
+      >
+        {state.isPaused ? 'Start' : 'Pause'}
+      </button>
+      <button
+        style={{ margin: '1rem 0', padding: '1rem' }}
+        onClick={handleClose}
+      >
+        Close
+      </button>
     </StyledSettingsMenu>
   )
 }

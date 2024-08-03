@@ -16,7 +16,6 @@ const StyledClock = styled('div')<Partial<Props>>`
     border: none;
     color: ${({ $isActive }) => ($isActive ? '#111' : '#fff')};
     background-color: ${({ $isActive }) => ($isActive ? '#fff' : '#666')};
-    border-radius: 1.25vw;
   }
 
   .title {

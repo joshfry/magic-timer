@@ -22,17 +22,33 @@ const StyledClockScreen = styled('div')<Partial<Props>>`
 
       #clock-1 {
         grid-area: c;
+
+        .button {
+          border-bottom-left-radius: 5vw;
+        }
       }
       #clock-2 {
         transform: scale(-1, -1);
         grid-area: a;
+
+        .button {
+          border-bottom-right-radius: 5vw;
+        }
       }
       #clock-3 {
         transform: scale(-1, -1);
         grid-area: b;
+
+        .button {
+          border-bottom-left-radius: 5vw;
+        }
       }
       #clock-4 {
         grid-area: d;
+
+        .button {
+          border-bottom-right-radius: 5vw;
+        }
       }
     }
 

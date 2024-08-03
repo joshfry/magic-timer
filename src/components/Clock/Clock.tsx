@@ -22,7 +22,7 @@ const Clock = ({ className = '', id }: Props) => {
       return
     }
 
-    if (start) {
+    if (start && !state.isPaused) {
       // @ts-ignore
       tick.current = setInterval(() => {
         setTimer((timer) => timer - 1)
@@ -32,9 +32,10 @@ const Clock = ({ className = '', id }: Props) => {
     }
 
     return () => clearInterval(tick.current)
-  }, [start])
+  }, [start, state.isPaused])
 
   const handleClick = () => {
+    state.setIsPaused(false)
     setStart(!start)
     setIsActive(!isActive)
   }
